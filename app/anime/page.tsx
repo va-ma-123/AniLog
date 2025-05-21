@@ -1,7 +1,7 @@
 "use client";
 import AnimeCard from '@/components/AnimeCard';
 import { animeData } from '@/lib/data/anime';
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function AnimePage() {
   const [searchTerm, setSearchTerm] = useState('');
