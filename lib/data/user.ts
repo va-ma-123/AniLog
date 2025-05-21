@@ -8,6 +8,11 @@ export interface User {
         userRating: number | null;
         status: 'Watching' | 'Completed' | 'Plan to Watch' | 'Dropped';
         lastEpisode: number;
+        favoriteCharacter?: string;
+        favoriteOpening?: string;
+        favoriteEnding?: string;
+        favoriteScene?: string;
+        review?: string;
     }[];
     readManga: {
         mangaId: string;
@@ -26,19 +31,24 @@ export const usersData: User[] = [
     watchedAnime: [
       {
         animeId: '1',
-        userRating: 9.2,
+        userRating: 9,
         status: 'Completed',
-        lastEpisode: 75
+        lastEpisode: 75,
+        favoriteCharacter: 'Levi Ackerman',
+        favoriteOpening: 'Guren no Yumiya',
+        favoriteEnding: 'Great Escape',
+        favoriteScene: 'Levi vs Beast Titan battle',
+        review: 'One of the best anime ever created. The story gets deeper with each season, and the animation is top-notch.'
       },
       {
         animeId: '3',
-        userRating: 8.7,
+        userRating: 8,
         status: 'Watching',
         lastEpisode: 12
       },
       {
         animeId: '5',
-        userRating: 8.9,
+        userRating: 9,
         status: 'Completed',
         lastEpisode: 24
       }

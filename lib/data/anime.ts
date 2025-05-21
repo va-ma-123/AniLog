@@ -9,6 +9,19 @@ export interface Anime {
   studio: string;
   rating: number | null;
   status: 'Ongoing' | 'Completed' | 'Upcoming';
+  characters?: string[];
+  openings?: {
+    number: number;
+    title: string;
+    artist: string;
+    youtubeUrl?: string;
+  }[];
+  endings?: {
+    number: number;
+    title: string;
+    artist: string;
+    youtubeUrl?: string;
+  }[];
 }
 
 export const animeData: Anime[] = [
@@ -19,10 +32,118 @@ export const animeData: Anime[] = [
     description: 'Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure.',
     genres: ['Action', 'Drama', 'Fantasy', 'Mystery'],
     releaseYear: 2013,
-    episodes: 25,
-    studio: 'WIT Studio',
+    episodes: 75,
+    studio: 'WIT Studio, MAPPA',
     rating: 9.0,
-    status: 'Completed'
+    status: 'Completed',
+    characters: ['Eren Yeager', 'Mikasa Ackerman', 'Armin Arlert', 'Levi Ackerman', 'Erwin Smith', 'Hange Zoë', 'Reiner Braun', 'Annie Leonhart', 'Bertholdt Hoover', 'Jean Kirstein', 'Sasha Blouse', 'Connie Springer'],
+    openings: [
+      {
+        number: 1,
+        title: 'Guren no Yumiya',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=8OkpRK2_gVs'
+      },
+      {
+        number: 2,
+        title: 'Jiyuu no Tsubasa',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=PbWFpzi8C94'
+      },
+      {
+        number: 3,
+        title: 'Shinzou wo Sasageyo',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=CID-sYQNCew'
+      },
+      {
+        number: 4,
+        title: 'Red Swan',
+        artist: 'Yoshiki feat. Hyde',
+        youtubeUrl: 'https://www.youtube.com/watch?v=r1XE8ON8fos'
+      },
+      {
+        number: 5,
+        title: 'Shoukei to Shikabane no Michi',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=0dK7JgKivQM'
+      },
+      {
+        number: 6,
+        title: 'My War',
+        artist: 'Shinsei Kamattechan',
+        youtubeUrl: 'https://www.youtube.com/watch?v=6TolbTZXDjI'
+      },
+      {
+        number: 7,
+        title: 'The Rumbling',
+        artist: 'SiM',
+        youtubeUrl: 'https://www.youtube.com/watch?v=2S4qGKmzBJE'
+      },
+      {
+        number: 8,
+        title: 'Saigo no Kyojin (The Last Titan)',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=d6qCbdXqsOs'
+      }
+    ],
+    endings: [
+      {
+        number: 1,
+        title: 'Utsukushiki Zankoku na Sekai',
+        artist: 'Yōko Hikasa',
+        youtubeUrl: 'https://www.youtube.com/watch?v=QBlYYOsdG-U'
+      },
+      {
+        number: 2,
+        title: 'Great Escape',
+        artist: 'Cinema Staff',
+        youtubeUrl: 'https://www.youtube.com/watch?v=sFdzNhJAdco'
+      },
+      {
+        number: 3,
+        title: 'Yuugure no Tori',
+        artist: 'Shinsei Kamattechan',
+        youtubeUrl: 'https://www.youtube.com/watch?v=rbfHY8mkhT8'
+      },
+      {
+        number: 4,
+        title: 'Akatsuki no Requiem',
+        artist: 'Linked Horizon',
+        youtubeUrl: 'https://www.youtube.com/watch?v=sC9zEzGRK50'
+      },
+      {
+        number: 5,
+        title: 'Name of Love',
+        artist: 'Cinema Staff',
+        youtubeUrl: 'https://www.youtube.com/watch?v=LnCDBel2JV0'
+      },
+      {
+        number: 6,
+        title: 'Shogeki',
+        artist: 'Yuko Ando',
+        youtubeUrl: 'https://www.youtube.com/watch?v=AZl8UDsqsoM'
+      },
+      {
+        number: 7,
+        title: 'Akuma no Ko',
+        artist: 'Ai Higuchi',
+        youtubeUrl: 'https://www.youtube.com/watch?v=-ZmAcmUSMHM'
+      },
+      {
+        number: 8,
+        title: 'Itterasshai',
+        artist: 'Ai Higuchi',
+        youtubeUrl: 'https://www.youtube.com/watch?v=DU2KGyQgso4'
+      },
+      {
+        number: 9,
+        title: 'Under the Tree',
+        artist: 'SIM',
+        youtubeUrl: 'https://www.youtube.com/watch?v=yKPka2qGRh8'
+      },
+      
+    ],
   },
   {
     id: '2',
@@ -46,7 +167,60 @@ export const animeData: Anime[] = [
     episodes: 26,
     studio: 'Ufotable',
     rating: 8.7,
-    status: 'Completed'
+    status: 'Ongoing',
+    characters: ['Tanjirou Kamado', 'Nezuko Kamado', 'Zenitsu Agatsuma', 'Inosuke Hashibira', 'Giyu Tomioka', 'Kyojuro Rengoku', 'Shinobu Kocho', 'Muzan Kibutsuji', 'Kanao Tsuyuri', 'Tengen Uzui'],
+    openings: [
+      {
+        number: 1,
+        title: 'Gurenge',
+        artist: 'LiSA',
+        youtubeUrl: 'https://www.youtube.com/watch?v=pmanD_s7G3U'
+      },
+      {
+        number: 2,
+        title: 'Akeboshi',
+        artist: 'LiSA',
+        youtubeUrl: 'https://www.youtube.com/watch?v=yGcm81aaTHg'
+      },
+      {
+        number: 3,
+        title: 'Zankyou Sanka',
+        artist: 'Aimer',
+        youtubeUrl: 'https://www.youtube.com/watch?v=SHxzLV2X86Q'
+      },
+      {
+        number: 4,
+        title: 'Kizuna no Kiseki',
+        artist: 'MAN WITH A MISSION x milet',
+        youtubeUrl: 'https://www.youtube.com/watch?v=VW13HOdckFw'
+      },
+      {
+        number: 5,
+        title: 'MUGEN',
+        artist: 'MY FIRST STORY x Hyde',
+        youtubeUrl: 'https://www.youtube.com/watch?v=ipIZ1Qem-iY'
+      }
+    ],
+    endings: [
+      {
+        number: 1,
+        title: 'from the edge',
+        artist: 'FictionJunction feat. LiSA',
+        youtubeUrl: 'https://www.youtube.com/watch?v=G0WaWmhgbiA'
+      },
+      {
+        number: 2,
+        title: 'Shirogane',
+        artist: 'LiSA',
+        youtubeUrl: 'https://www.youtube.com/watch?v=Nm9Qf5-CzA8'
+      },
+      {
+        number: 3,
+        title: 'Asa ga Kuru',
+        artist: 'Aimer',
+        youtubeUrl: 'https://www.youtube.com/watch?v=Lfa-7pKeWZU'
+      }
+    ]
   },
   {
     id: '4',
@@ -55,10 +229,10 @@ export const animeData: Anime[] = [
     description: 'Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item.',
     genres: ['Action', 'Demons', 'Supernatural', 'School'],
     releaseYear: 2020,
-    episodes: 24,
+    episodes: 47,
     studio: 'MAPPA',
     rating: 8.6,
-    status: 'Completed'
+    status: 'Ongoing'
   },
   {
     id: '5',
@@ -70,19 +244,7 @@ export const animeData: Anime[] = [
     episodes: 24,
     studio: 'Madhouse',
     rating: 8.5,
-    status: 'Completed'
-  },
-  {
-    id: '6',
-    title: 'One Punch Man Season 3',
-    image: 'https://cdn.myanimelist.net/images/anime/1170/121232.jpg',
-    description: '3rd season of One Punch Man.',
-    genres: ['Action', 'Comedy', 'Sci-Fi', 'Supernatural'],
-    releaseYear: 2025,
-    episodes: 0,
-    studio: 'TBD',
-    rating: null,
-    status: 'Upcoming'
+    status: 'Ongoing'
   },
 ];
 

@@ -8,7 +8,7 @@ export interface Manga {
   chapters: number;
   author: string;
   rating: number | null;
-  status: 'Ongoing' | 'Completed' | 'Hiatus' | 'Upcoming';
+  status: 'Ongoing' | 'Completed' | 'Upcoming' | 'Hiatus';
 }
 
 export const mangaData: Manga[] = [
