@@ -9,6 +9,7 @@ export interface Manga {
   author: string;
   rating: number | null;
   status: 'Ongoing' | 'Completed' | 'Upcoming' | 'Hiatus';
+  characters?: string[];
 }
 
 export const mangaData: Manga[] = [
@@ -16,7 +17,7 @@ export const mangaData: Manga[] = [
     id: '1',
     title: 'Berserk',
     image: 'https://cdn.myanimelist.net/images/manga/1/157897.jpg',
-    description: 'Guts, a former mercenary now known as the "Black Swordsman," is out for revenge. After a tumultuous childhood, he finally finds someone he respects and believes he can trust, only to have everything fall apart when this person takes away everything important to Guts for the purpose of fulfilling his own desires.',
+    description: 'Guts, a former mercenary now known as the \'Black Swordsman,\' is out for revenge. After a tumultuous childhood, he finally finds someone he respects and believes he can trust, only to have everything fall apart when this person takes away everything important to Guts for the purpose of fulfilling his own desires.',
     genres: ['Action', 'Adventure', 'Drama', 'Fantasy', 'Horror', 'Supernatural'],
     releaseYear: 1989,
     chapters: 364,
@@ -28,7 +29,7 @@ export const mangaData: Manga[] = [
     id: '2',
     title: 'One Piece',
     image: 'https://cdn.myanimelist.net/images/manga/3/55539.jpg',
-    description: 'Gol D. Roger, a man referred to as the "Pirate King," is set to be executed by the World Government. But just before his death, he confirms the existence of a great treasure, One Piece, located somewhere within the vast ocean known as the Grand Line. Announcing that One Piece can be claimed by anyone worthy enough to reach it, the Pirate King is executed and the Great Age of Pirates begins.',
+    description: 'Gol D. Roger, a man referred to as the \'Pirate King,\' is set to be executed by the World Government. But just before his death, he confirms the existence of a great treasure, One Piece, located somewhere within the vast ocean known as the Grand Line. Announcing that One Piece can be claimed by anyone worthy enough to reach it, the Pirate King is executed and the Great Age of Pirates begins.',
     genres: ['Action', 'Adventure', 'Comedy', 'Fantasy', 'Shounen'],
     releaseYear: 1997,
     chapters: 1000,
@@ -46,7 +47,9 @@ export const mangaData: Manga[] = [
     chapters: 202,
     author: 'Tatsuki Fujimoto',
     rating: 8.8,
-    status: 'Ongoing'
+    status: 'Ongoing',
+    characters: ['Denji', 'Pochita', 'Makima', 'Power', 'Aki Hayakawa', 'Himeno', 'Kishibe', 'Reze', 'Kobeni Higashiyama', 'Quanxi', 'Beam', 'Violence Fiend', 'Angel Devil', 'Katana Man', 'Santa Claus', 'Cosmo', 'Yoshida', 'Nayuta', 'Asa Mitaka', 'Yoru']
+
   },
   {
     id: '4',
@@ -70,7 +73,8 @@ export const mangaData: Manga[] = [
     chapters: 218,
     author: 'Makoto Yukimura',
     rating: 9.0,
-    status: 'Ongoing'
+    status: 'Ongoing',
+    characters: ['Miyamoto Musashi','Sasaki Kojiro','Otsu','Takuan Soho','Matahachi Honiden','Oko','Akemi','Yagyu Sekishusai','Yagyu Munenori','Inshun Hozoin','Ittosai','Takuan','Baiken Shishido','Seijuro Yoshioka','Denshichiro Yoshioka','Ueda Ryosuke','Jotaro','Tsujikaze Tenma','Ogawa Inei','Kojirō\'s Mother',]
   },
   {
     id: '6',

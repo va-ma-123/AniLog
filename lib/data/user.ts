@@ -12,13 +12,14 @@ export interface User {
         favoriteOpening?: string;
         favoriteEnding?: string;
         favoriteScene?: string;
-        review?: string;
     }[];
     readManga: {
         mangaId: string;
         userRating: number | null;
         status: 'Reading' | 'Completed' | 'Plan to Read' | 'Dropped';
         lastChapter: number;
+        favoriteCharacter?: string;
+        favoriteScene?: string;
     }[];
 }
 
@@ -38,7 +39,6 @@ export const usersData: User[] = [
         favoriteOpening: 'Guren no Yumiya',
         favoriteEnding: 'Great Escape',
         favoriteScene: 'Levi vs Beast Titan battle',
-        review: 'One of the best anime ever created. The story gets deeper with each season, and the animation is top-notch.'
       },
       {
         animeId: '3',
@@ -87,7 +87,7 @@ export const usersData: User[] = [
         lastEpisode: 24
       },
       {
-        animeId: '6',
+        animeId: '5',
         userRating: 8.5,
         status: 'Watching',
         lastEpisode: 10
@@ -104,7 +104,9 @@ export const usersData: User[] = [
         mangaId: '3',
         userRating: 8.9,
         status: 'Reading',
-        lastChapter: 80
+        lastChapter: 80,
+        favoriteCharacter: 'Makima',
+        favoriteScene: 'Darkness devil entrance'
       },
       {
         mangaId: '5',
