@@ -3,6 +3,7 @@
 import { Manga } from "@/lib/data/manga";
 import { useState } from "react";
 import Image from "next/image";
+import { useAuth } from "@/lib/context/AuthContext";
 
 interface MangaDetailsProps {
     manga: Manga;
@@ -12,12 +13,12 @@ export default function MangaDetail({ manga }: MangaDetailsProps) {
     const [userRating, setUserRating] = useState<number | null>(null);
     const [readStatus, setReadStatus] = useState<string | null>(null);
     const [chaptersRead, setChaptersRead] = useState<number>(0);
-    const [isLoggedIn] = useState(false);
+    const { isAuthenticated } = useAuth();
     const [favoriteCharacter, setFavoriteCharacter] = useState<string>('');
     const [favoriteScene, setFavoriteScene] = useState<string>('');
 
     const handleRatingChange = (rating: number) => {
-        if(!isLoggedIn) {
+        if(!isAuthenticated) {
             alert('Please log in to rate manga');
             return;
         }
@@ -36,7 +37,7 @@ export default function MangaDetail({ manga }: MangaDetailsProps) {
     };
 
     const handleSave = () => {
-        if(!isLoggedIn) {
+        if(!isAuthenticated) {
             alert('Please log in to save progress');
             return;
         }

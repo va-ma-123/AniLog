@@ -60,6 +60,18 @@ export default function AuthForm({ type }: AuthFormProps) {
             <h2 className='text-2xl font-bold mb-6 text-center capitalize'>
                 {type === 'signup' ? 'Sign up' : 'Log in'}
             </h2>
+
+            {type === 'signup' && (
+                <Input 
+                    label='Username'
+                    name="username"
+                    type='text'
+                    value={form.username}
+                    onChange={handleChange}
+                    required
+                />
+            )}
+
             <Input 
                 label="Email"
                 name="email"

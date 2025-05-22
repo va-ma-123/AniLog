@@ -32,45 +32,52 @@ export default function Profile ({ user }: ProfileProps) {
 
     return (
         <div>
-            <div>
-                <div>
-                    <div>
+            <div className="bg-white rounded-lg shadow-md p-6 m-8">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <div className="w-24 h-24 relative">
                         <Image 
                             src={user.avatar}
                             alt={user.name}
                             fill
+                            className="rounded-full object-cover"
                         />
                     </div>
                     <div>
-                        <h1>{user.name}</h1>
-                        <p>{user.email}</p>
-                        <div>
+                        <h1 className="text-2xl font-bold">{user.name}</h1>
+                        <p className="text-gray-600">{user.email}</p>
+                        <div className="flex mt-4 gap-4">
                             <div>
-                                <span>{user.watchedAnime.length}</span>
-                                <p>Anime</p>
+                                <span className="text-lg font-bold">{user.watchedAnime.length}</span>
+                                <p className="text-sm text-gray-600">Anime</p>
                             </div>
                             <div>
-                                <span>{user.readManga.length}</span>
-                                <p>Manga</p>
+                                <span className="text-lg font-bold">{user.readManga.length}</span>
+                                <p className="text-sm text-gray-600">Manga</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <div>
+                <div className="flex border-b">
                     <button
+                        className={`py-3 px-6 font-medium ${
+                            activeTab === 'anime' ? 'bg-blue-600 text-white' : 'text-gray-700'
+                        }`}
                         onClick={() => setActiveTab('anime')}
                     >
                         Anime List
                     </button>
                     <button
+                        className={`py-3 px-6 font-medium ${
+                            activeTab === 'manga' ? 'bg-blue-600 text-white' : 'text-gray-700'
+                        }`}
                         onClick={() => setActiveTab('manga')}
                     >
                         Manga List
                     </button>
                 </div>
-                <div>
+                <div className="p-4">
                     {activeTab === 'anime' ? (
                         <div>
                             {allAnime.length > 0 ? (
@@ -78,10 +85,10 @@ export default function Profile ({ user }: ProfileProps) {
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Title</th>
-                                                <th>Progress</th>
-                                                <th>Status</th>
-                                                <th>My Rating (1-10)</th>
+                                                <th className="">Title</th>
+                                                <th className="">Progress</th>
+                                                <th className="">Status</th>
+                                                <th className="">My Rating (1-10)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -120,11 +127,11 @@ export default function Profile ({ user }: ProfileProps) {
                                     </table>
                                 </div>
                             ) : (
-                                <div>
-                                    <p>
+                                <div className="text-center p-8">
+                                    <p className="text-gray-600">
                                         You haven&apos;t added any anime to your list yet.
                                     </p>
-                                    <Link href="/anime">
+                                    <Link href="/anime" className="mt-2 inline-block text-blue-600 hover:underline">
                                         Browse Anime
                                     </Link>
                                 </div>
@@ -179,11 +186,11 @@ export default function Profile ({ user }: ProfileProps) {
                                     </table>
                                 </div>
                             ) : (
-                                <div>
-                                    <p>
+                                <div className="text-center p-8">
+                                    <p className="text-gray-600">
                                         You haven&apos;t added any manga to your list yet.
                                     </p>
-                                    <Link href="/manga">
+                                    <Link href="/manga" className="mt-2 inline-block text-blue-600 hover:underline">
                                         Browse Manga
                                     </Link>
                                 </div>

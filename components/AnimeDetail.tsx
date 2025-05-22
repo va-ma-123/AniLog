@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/lib/context/AuthContext";
 import { Anime } from "@/lib/data/anime";
 import Image from "next/image";
 import { useState } from "react";
@@ -13,14 +14,14 @@ export default function AnimeDetail({ anime }: AnimeDetailProps ) {
     const [userRating, setUserRating] = useState<number | null>(null);
     const [watchStatus, setWatchStatus] = useState<string | null>(null);
     const [episodesWatched, setEpisodesWatched] = useState<number>(0);
-    const [isLoggedIn] = useState(false);
+    const { isAuthenticated } = useAuth();
     const [favoriteCharacter, setFavoriteCharacter] = useState<string>('');
     const [favoriteOpening, setFavoriteOpening] = useState<string>('');
     const [favoriteEnding, setFavoriteEnding] = useState<string>('');
     const [favoriteScene, setFavoriteScene] = useState<string>('');
     
     const handleRatingChange = (rating: number) => {
-        if(!isLoggedIn) {
+        if(!isAuthenticated) {
             alert('Please log in to rate anime');
             return;
         }
@@ -39,7 +40,7 @@ export default function AnimeDetail({ anime }: AnimeDetailProps ) {
     };
 
     const handleSave = () => {
-        if(!isLoggedIn) {
+        if(!isAuthenticated) {
             alert('Please log in to save progress');
             return;
         }
