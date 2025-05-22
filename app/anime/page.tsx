@@ -12,7 +12,6 @@ export default function AnimePage() {
     new Set(animeData.flatMap(anime => anime.genres))
   ).sort();
 
-
   const filteredAnime = animeData
     .filter( anime => 
       anime.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -111,5 +110,5 @@ export default function AnimePage() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
