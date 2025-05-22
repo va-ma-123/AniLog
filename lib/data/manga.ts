@@ -61,7 +61,8 @@ export const mangaData: Manga[] = [
     chapters: 327,
     author: 'Takehiko Inoue',
     rating: 9.3,
-    status: 'Hiatus'
+    status: 'Hiatus',
+    characters: ['Miyamoto Musashi','Sasaki Kojiro','Otsu','Takuan Soho','Matahachi Honiden','Oko','Akemi','Yagyu Sekishusai','Yagyu Munenori','Inshun Hozoin','Ittosai','Takuan','Baiken Shishido','Seijuro Yoshioka','Denshichiro Yoshioka','Ueda Ryosuke','Jotaro','Tsujikaze Tenma','Ogawa Inei','Kojirō\'s Mother',],
   },
   {
     id: '5',
@@ -74,7 +75,6 @@ export const mangaData: Manga[] = [
     author: 'Makoto Yukimura',
     rating: 9.0,
     status: 'Ongoing',
-    characters: ['Miyamoto Musashi','Sasaki Kojiro','Otsu','Takuan Soho','Matahachi Honiden','Oko','Akemi','Yagyu Sekishusai','Yagyu Munenori','Inshun Hozoin','Ittosai','Takuan','Baiken Shishido','Seijuro Yoshioka','Denshichiro Yoshioka','Ueda Ryosuke','Jotaro','Tsujikaze Tenma','Ogawa Inei','Kojirō\'s Mother',]
   },
   {
     id: '6',
