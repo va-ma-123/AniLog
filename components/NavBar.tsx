@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react'
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
