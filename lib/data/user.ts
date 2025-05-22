@@ -129,7 +129,7 @@ export function getCurrentUser(): User | null {
 }
 
 // would have password as an argument too, but this is just mock
-export function login(email: string): User | null {
+export function login(email: string, password: string): User | null {
     const user = usersData.find(user => user.email === email);
     if(user) {
         currentUser = user;
@@ -143,7 +143,7 @@ export function logout(): void {
 }
 
 // would have password as an argument too, but this is just mock
-export function register(name: string, email: string): User | null {
+export function register(name: string, email: string, password: string): User | null {
     const newUser: User = {
         id: (usersData.length + 1).toString(),
         name,

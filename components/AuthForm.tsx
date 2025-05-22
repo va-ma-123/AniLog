@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import Input from './Input';
+import { useAuth } from '@/lib/context/AuthContext';
 
 interface AuthFormProps {
     type: 'login' | 'signup';
@@ -11,8 +12,10 @@ interface AuthFormProps {
 
 export default function AuthForm({ type }: AuthFormProps) {
     const router = useRouter();
-    const [form, setForm] = useState({ email: '', password: ''});
+    const { login, register } = useAuth();
+    const [form, setForm] = useState({ username: '', email: '', password: ''});
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,15 +24,32 @@ export default function AuthForm({ type }: AuthFormProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
         try{
             if (type === 'signup') {
-                router.push('/login')
+                if (!form.username) {
+                    setError('Username is required');
+                    setLoading(false);
+                    return;
+                }
+                const success = await register(form.username, form.email, form.password);
+                if(success) {
+                    router.push('/');
+                } else {
+                    setError('Registration failed. Please try again.');
+                }
             } else {
-                router.push('/')
+                const success = await login(form.email, form.password);
+                if (success) {
+                    router.push('/');
+                } else {
+                    setError('Invalid email or password. Login failed.');
+                }
             }
         } catch (err) {
             console.error(err);
+            setError('An error occurred. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -56,6 +76,13 @@ export default function AuthForm({ type }: AuthFormProps) {
                 onChange={handleChange}
                 required
             />
+
+            {error && (
+                <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4'>
+                    {error}
+                </div>
+            )}
+
             <button
                 type='submit'
                 disabled={loading}

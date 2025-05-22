@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBar from "../components/NavBar";
+import ClientBody from "./ClientBody";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +29,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="antialiased bg-gray-50 min-h-screen"
       >
-        <NavBar />
-        <main>
-          {children}
-        </main>
+        <ClientBody>{children}</ClientBody>
       </body>
     </html>
   );
