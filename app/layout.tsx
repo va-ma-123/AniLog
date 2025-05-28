@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackServerApp } from "../stack";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
@@ -28,9 +30,9 @@ export default function RootLayout({
       <body
         suppressHydrationWarning
         className="antialiased bg-gray-50 min-h-screen"
-      >
+      ><StackProvider app={stackServerApp}><StackTheme>
         <ClientBody>{children}</ClientBody>
-      </body>
+      </StackTheme></StackProvider></body>
     </html>
   );
 }
