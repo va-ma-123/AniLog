@@ -1,0 +1,133 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Anime {
+  id          String    @id
+  title       String
+  image       String
+  description String
+  genres      String[]
+  releaseYear Int
+  episodes    Int
+  studio      String
+  rating      Float?
+  status      AnimeStatus
+  characters  String[]
+  openings    Opening[]
+  endings     Ending[]
+  watchedBy   WatchedAnime[]
+}
+
+model Manga {
+  id          String       @id
+  title       String
+  image       String
+  description String
+  genres      String[]
+  releaseYear Int
+  chapters    Int
+  author      String
+  rating      Float?
+  status      MangaStatus
+  characters  String[]
+  readBy      ReadManga[]
+}
+
+model User {
+  id              String         @id
+  name            String
+  email           String         @unique
+  avatar          String
+  hashedPassword  String?
+  watchedAnime    WatchedAnime[]
+  readManga       ReadManga[]
+}
+
+model WatchedAnime {
+  id               String   @id @default(cuid())
+  animeId          String
+  userId           String
+  userRating       Float?
+  status           WatchStatus
+  lastEpisode      Int
+  favoriteCharacter String?
+  favoriteOpening   String?
+  favoriteEnding    String?
+  favoriteScene     String?
+
+  user  User  @relation(fields: [userId], references: [id])
+  anime Anime @relation(fields: [animeId], references: [id])
+}
+
+model ReadManga {
+  id               String   @id @default(cuid())
+  mangaId          String
+  userId           String
+  userRating       Float?
+  status           ReadStatus
+  lastChapter      Int
+  favoriteCharacter String?
+  favoriteScene     String?
+
+  user  User  @relation(fields: [userId], references: [id])
+  manga Manga @relation(fields: [mangaId], references: [id])
+}
+
+model Opening {
+  id        String @id @default(cuid())
+  animeId   String
+  number    Int
+  title     String
+  artist    String
+  youtubeUrl String?
+
+  anime Anime @relation(fields: [animeId], references: [id])
+}
+
+model Ending {
+  id        String @id @default(cuid())
+  animeId   String
+  number    Int
+  title     String
+  artist    String
+  youtubeUrl String?
+
+  anime Anime @relation(fields: [animeId], references: [id])
+}
+
+enum AnimeStatus {
+  Ongoing
+  Completed
+  Upcoming
+}
+
+enum MangaStatus {
+  Ongoing
+  Completed
+  Upcoming
+  Hiatus
+}
+
+enum WatchStatus {
+  Watching
+  Completed
+  PlanToWatch
+  Dropped
+}
+
+enum ReadStatus {
+  Reading
+  Completed
+  PlanToRead
+  Dropped
+}
